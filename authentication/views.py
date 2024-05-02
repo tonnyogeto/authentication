@@ -4,6 +4,7 @@ from . forms import CreateUserForm, LoginForm
 # Authenticate models and function
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -47,6 +48,7 @@ def log_in(request):
 
     return render(request, 'authentication/my-login.html', context=context)
 
+@login_required(login_url="log-in")
 def dashboard(request):
     return render(request, 'authentication/dashboard.html')
 
