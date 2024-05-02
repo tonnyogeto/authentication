@@ -49,3 +49,7 @@ def log_in(request):
 
 def dashboard(request):
     return render(request, 'authentication/dashboard.html')
+
+def user_logout(request):
+	auth.logout(request)
+	return redirect("")
